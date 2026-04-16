@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recruit Crew Member"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Crew member name"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/et_crew_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:maxLength="30" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Specialization"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_specialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rb_pilot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pilot — SKL 5, RES 4, HP 20"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rb_engineer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Engineer — SKL 6, RES 3, HP 19" />
+
+            <RadioButton
+                android:id="@+id/rb_medic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medic — SKL 7, RES 2, HP 18" />
+
+            <RadioButton
+                android:id="@+id/rb_scientist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scientist — SKL 8, RES 1, HP 17" />
+
+            <RadioButton
+                android:id="@+id/rb_soldier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Soldier — SKL 9, RES 0, HP 16" />
+
+        </RadioGroup>
+
+        <!-- Live stat preview -->
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
+
+            <TextView
+                android:id="@+id/tv_stat_preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="SKL 5  RES 4  HP 20"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recruit"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+    </LinearLayout>
+</ScrollView>

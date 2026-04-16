@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Medbay"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="8dp"
+        android:text="Crew members here recover over missions. Stats reset to base on discharge."/>
+
+    <TextView
+        android:id="@+id/tv_empty_medbay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No crew in Medbay. Everyone is healthy!"
+        android:gravity="center"
+        android:padding="24dp"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_medbay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

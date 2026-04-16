@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_quarters"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Quarters" />
+
+    <item
+        android:id="@+id/nav_simulator"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:title="Simulator" />
+
+    <item
+        android:id="@+id/nav_mission"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="Mission" />
+
+    <item
+        android:id="@+id/nav_stats"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Stats" />
+
+</menu>

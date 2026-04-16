@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Space Colony</string>
+
+    <!-- Locations -->
+    <string name="location_quarters">Quarters</string>
+    <string name="location_simulator">Simulator</string>
+    <string name="location_mission_control">Mission Control</string>
+    <string name="location_medbay">Medbay</string>
+
+    <!-- Specializations -->
+    <string name="spec_pilot">Pilot</string>
+    <string name="spec_engineer">Engineer</string>
+    <string name="spec_medic">Medic</string>
+    <string name="spec_scientist">Scientist</string>
+    <string name="spec_soldier">Soldier</string>
+
+    <!-- Actions -->
+    <string name="action_recruit">Recruit New Crew Member</string>
+    <string name="action_train">Train Selected (+1 XP)</string>
+    <string name="action_launch">Launch Mission (2–3 crew)</string>
+    <string name="action_attack">⚔ Attack</string>
+    <string name="action_defend">🛡 Defend</string>
+    <string name="action_special">✨ Special</string>
+    <string name="action_auto_turn">Auto Turn (AI)</string>
+
+    <!-- Messages -->
+    <string name="msg_no_crew_quarters">No crew in Quarters.</string>
+    <string name="msg_no_crew_simulator">No crew in the Simulator.</string>
+    <string name="msg_no_crew_mission">No crew in Mission Control. Move crew here from Quarters.</string>
+    <string name="msg_no_crew_medbay">No crew in Medbay. Everyone is healthy!</string>
+    <string name="msg_select_crew">Select at least one crew member.</string>
+    <string name="msg_select_squad">Select 2 or 3 crew members.</string>
+    <string name="msg_enter_name">Please enter a name.</string>
+</resources>

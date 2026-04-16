@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mission Control"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <!-- Threat info banner (visible once mission starts) -->
+    <TextView
+        android:id="@+id/tv_threat_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="#FFEB3B"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:visibility="visible"
+        android:text="Select a squad and launch a mission."/>
+
+    <!-- Current actor label (visible during combat) -->
+    <TextView
+        android:id="@+id/tv_current_actor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="Current turn: "/>
+
+    <!-- Squad selection RecyclerView -->
+    <TextView
+        android:id="@+id/tv_empty_mission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No crew in Mission Control. Move crew here from Quarters."
+        android:gravity="center"
+        android:padding="16dp"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_squad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Battle log -->
+    <ScrollView
+        android:id="@+id/scroll_log"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="#F5F5F5">
+
+        <TextView
+            android:id="@+id/tv_mission_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:text=""/>
+
+    </ScrollView>
+
+    <!-- Post-mission panel (shown after mission ends) -->
+    <LinearLayout
+        android:id="@+id/layout_post_mission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="#E8F5E9"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_post_mission_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="Mission ended."/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_return_quarters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Return to Quarters"/>
+
+            <Button
+                android:id="@+id/btn_stay_mission"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Stay in Mission Control"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Launch buttons (shown before mission starts) -->
+    <LinearLayout
+        android:id="@+id/layout_launch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/btn_launch_mission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Launch Mission (2–3 crew)"/>
+
+    </LinearLayout>
+
+    <!-- Tactical combat buttons (shown during mission) -->
+    <LinearLayout
+        android:id="@+id/layout_tactical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_attack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:text="⚔ Attack"/>
+
+        <Button
+            android:id="@+id/btn_defend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:text="🛡 Defend"/>
+
+        <Button
+            android:id="@+id/btn_special"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="✨ Special"/>
+
+    </LinearLayout>
+
+    <!-- Auto-turn button -->
+    <Button
+        android:id="@+id/btn_auto_turn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="8dp"
+        android:text="Auto Turn (AI)"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:visibility="gone"/>
+</LinearLayout>

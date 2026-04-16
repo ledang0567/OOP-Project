@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Statistics"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <!-- Colony-wide summary -->
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp">
+
+        <TextView
+            android:id="@+id/tv_colony_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:textSize="13sp"
+            android:text="Loading…"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Crew detail on tap -->
+    <TextView
+        android:id="@+id/tv_crew_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="8dp"
+        android:padding="12dp"
+        android:background="#E3F2FD"
+        android:fontFamily="monospace"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:text=""/>
+
+    <!-- Crew list sorted by wins -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_stats"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
