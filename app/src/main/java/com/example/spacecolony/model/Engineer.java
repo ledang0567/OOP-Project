@@ -17,9 +17,6 @@ public class Engineer extends CrewMember {
                 location, missionsCompleted, missionsWon, trainingSessions);
     }
 
-    /**
-     * Engineers get a bonus on mechanical/systems failure missions.
-     */
     @Override
     public int getSpecialBonus(String missionType) {
         if (missionType == null) return 0;

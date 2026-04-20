@@ -17,9 +17,6 @@ public class Medic extends CrewMember {
                 location, missionsCompleted, missionsWon, trainingSessions);
     }
 
-    /**
-     * Medics are effective against biological/health threats.
-     */
     @Override
     public int getSpecialBonus(String missionType) {
         if (missionType == null) return 0;
@@ -32,11 +29,6 @@ public class Medic extends CrewMember {
         }
     }
 
-    /**
-     * Medic special ability: heal instead of attacking — restores 5 energy
-     * to the other crew member and deals normal damage.
-     * The heal effect is handled by MissionEngine; this just returns damage.
-     */
     @Override
     public int specialAbility(String missionType) {
         return act(missionType); // damage is normal; MissionEngine adds the heal

@@ -4,7 +4,7 @@ public class Scientist extends CrewMember {
     public static final int    DEFAULT_SKILL      = 8;
     public static final int    DEFAULT_RESILIENCE = 1;
     public static final int    DEFAULT_MAX_ENERGY = 17;
-    public static final String COLOR              = "#6A1B9A"; // purple
+    public static final String COLOR              = "#6A1B9A"; //purple
 
     public Scientist(String name) {
         super(name, "Scientist", DEFAULT_SKILL, DEFAULT_RESILIENCE, DEFAULT_MAX_ENERGY);
@@ -17,9 +17,6 @@ public class Scientist extends CrewMember {
                 location, missionsCompleted, missionsWon, trainingSessions);
     }
 
-    /**
-     * Scientists are effective against environmental/cosmic threats.
-     */
     @Override
     public int getSpecialBonus(String missionType) {
         if (missionType == null) return 0;

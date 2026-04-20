@@ -5,15 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Central storage for all crew members.
- * Implemented as a singleton so every part of the app shares the same data.
- *
- * Internally uses HashMap<Integer, CrewMember> as suggested in the spec.
- */
+
 public class Storage {
 
-    // --- Singleton ---
+    // Singleton
     private static Storage instance;
 
     public static Storage getInstance() {
@@ -21,24 +16,23 @@ public class Storage {
         return instance;
     }
 
-    /** Used by DataManager to replace the instance after loading saved data. */
     public static void setInstance(Storage storage) {
         instance = storage;
     }
 
-    // --- Fields ---
+    //Fields
     private String name;
     private final HashMap<Integer, CrewMember> crewMap;
     private int completedMissions; // used for threat scaling
 
-    // --- Constructor ---
+    // Constructor
     public Storage(String name) {
         this.name             = name;
         this.crewMap          = new HashMap<>();
         this.completedMissions = 0;
     }
 
-    // --- Crew management ---
+    // Crew management
 
     public void addCrewMember(CrewMember cm) {
         crewMap.put(cm.getId(), cm);
@@ -52,12 +46,10 @@ public class Storage {
         crewMap.remove(id);
     }
 
-    /** Returns all crew members regardless of location. */
     public List<CrewMember> getAllCrew() {
         return new ArrayList<>(crewMap.values());
     }
 
-    /** Returns crew members at a specific location. */
     public List<CrewMember> getCrewAt(String location) {
         List<CrewMember> result = new ArrayList<>();
         for (CrewMember cm : crewMap.values()) {
@@ -82,22 +74,22 @@ public class Storage {
         return getCrewAt(CrewMember.LOCATION_MEDBAY);
     }
 
-    // --- Mission counter ---
+    // Mission counter
 
     public int getCompletedMissions()       { return completedMissions; }
     public void incrementCompletedMissions(){ completedMissions++; }
     public void setCompletedMissions(int n) { completedMissions = n; }
 
-    // --- Colony name ---
+    // Colony name
 
     public String getName()              { return name; }
     public void   setName(String name)   { this.name = name; }
 
-    // --- Raw map access (used by DataManager for serialization) ---
+    // Raw map access (used by DataManager for serialization)
 
     public Map<Integer, CrewMember> getCrewMap() { return crewMap; }
 
-    // --- Summary helpers for the home screen ---
+    // Summary helpers for the home screen
 
     public int countAt(String location) {
         return getCrewAt(location).size();

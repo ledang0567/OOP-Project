@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- App theme colors -->
+
     <color name="colorPrimary">#1565C0</color>
     <color name="colorPrimaryDark">#0D47A1</color>
     <color name="colorAccent">#FF6F00</color>
 
-    <!-- Specialization colors (match CrewMember subclass getColor() values) -->
-    <color name="color_pilot">#1565C0</color>      <!-- blue -->
-    <color name="color_engineer">#F9A825</color>   <!-- yellow -->
-    <color name="color_medic">#2E7D32</color>      <!-- green -->
-    <color name="color_scientist">#6A1B9A</color>  <!-- purple -->
-    <color name="color_soldier">#B71C1C</color>    <!-- red -->
 
-    <!-- UI utility -->
+    <color name="color_pilot">#1565C0</color>
+    <color name="color_engineer">#F9A825</color>
+    <color name="color_medic">#2E7D32</color>
+    <color name="color_scientist">#6A1B9A</color>
+    <color name="color_soldier">#B71C1C</color>
+
+
     <color name="energy_bar_green">#4CAF50</color>
     <color name="energy_bar_low">#F44336</color>
     <color name="card_background">#FFFFFF</color>

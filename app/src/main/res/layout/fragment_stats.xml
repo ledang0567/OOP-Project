@@ -13,7 +13,6 @@
         android:textStyle="bold"
         android:padding="16dp"/>
 
-    <!-- Colony-wide summary -->
     <androidx.cardview.widget.CardView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -34,7 +33,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!-- Crew detail on tap -->
     <TextView
         android:id="@+id/tv_crew_detail"
         android:layout_width="match_parent"
@@ -48,7 +46,6 @@
         android:visibility="gone"
         android:text=""/>
 
-    <!-- Crew list sorted by wins -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_stats"
         android:layout_width="match_parent"

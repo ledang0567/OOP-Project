@@ -15,11 +15,7 @@ import com.example.spacecolony.ui.fragments.SimulatorFragment;
 import com.example.spacecolony.ui.fragments.StatsFragment;
 import com.example.spacecolony.ui.fragments.HomeFragment;
 
-/**
- * Single-activity host. Every screen is a Fragment.
- * Loads saved data on startup and saves on every relevant action
- * (save calls are triggered from each Fragment after state changes).
- */
+
 public class MainActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager;
@@ -29,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Load saved colony data (no-op on first launch)
+
         DataManager.load(this);
 
         fragmentManager = getSupportFragmentManager();
@@ -54,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
-
-    /** Replace the current Fragment, adding to back stack. */
     public void showFragment(Fragment fragment) {
         fragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
@@ -63,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    /** Shortcut so any Fragment can navigate to Medbay. */
+
     public void showMedbay() {
         showFragment(new MedbayFragment());
     }

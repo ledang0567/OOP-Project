@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Single crew member card used by CrewAdapter -->
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,14 +14,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Colored left border — tinted by specialization -->
         <View
             android:id="@+id/view_color_bar"
             android:layout_width="6dp"
             android:layout_height="match_parent"
             android:background="#888888" />
 
-        <!-- Main content -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -30,7 +27,6 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <!-- Name + specialization row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +51,6 @@
                     android:text="Pilot" />
             </LinearLayout>
 
-            <!-- Stats row: SKL / RES / XP -->
             <TextView
                 android:id="@+id/tv_stats"
                 android:layout_width="match_parent"
@@ -64,7 +59,6 @@
                 android:layout_marginTop="4dp"
                 android:text="SKL 5  RES 4  XP 0" />
 
-            <!-- Energy bar -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,7 +85,6 @@
                     android:text="20/20" />
             </LinearLayout>
 
-            <!-- Location badge -->
             <TextView
                 android:id="@+id/tv_location"
                 android:layout_width="wrap_content"
@@ -103,7 +96,6 @@
 
         </LinearLayout>
 
-        <!-- Checkbox for multi-select mode -->
         <CheckBox
             android:id="@+id/checkbox_select"
             android:layout_width="wrap_content"

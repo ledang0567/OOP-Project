@@ -2,13 +2,10 @@ package com.example.spacecolony.model;
 
 import java.util.Random;
 
-/**
- * Represents a system-generated threat that the crew fights on a mission.
- * Stats scale with the number of completed missions so difficulty increases over time.
- */
+
 public class Threat {
 
-    // All possible threat types — each maps to a specialization bonus in subclasses
+    //All possible threat types, each maps to a specialization bonus in subclasses
     public static final String[] THREAT_TYPES = {
             "Asteroid Field",
             "Fuel Leak",
@@ -29,12 +26,6 @@ public class Threat {
     private int          energy;
     private final int    maxEnergy;
 
-    /**
-     * Factory method: generates a threat scaled to the current mission count.
-     *
-     * @param completedMissions total missions finished so far (drives scaling)
-     * @return a new Threat instance
-     */
     public static Threat generate(int completedMissions) {
         Random rng = new Random();
 
@@ -61,26 +52,14 @@ public class Threat {
         this.energy     = maxEnergy;
     }
 
-    // --- Combat ---
+    // Combat
 
-    /**
-     * Threat attacks a crew member.
-     *
-     * @param target the crew member being attacked
-     * @return damage dealt (after target's resilience)
-     */
     public int attack(CrewMember target) {
         double randomBonus = Math.random() * 3;
         int damage = Math.max(1, (int)(skill + randomBonus));
         return target.defend(damage);
     }
 
-    /**
-     * Threat takes damage from a crew member's action.
-     *
-     * @param incomingDamage raw damage from crew member's act()
-     * @return actual damage taken (after resilience)
-     */
     public int takeDamage(int incomingDamage) {
         int damageTaken = Math.max(0, incomingDamage - resilience);
         energy = Math.max(0, energy - damageTaken);
@@ -89,7 +68,7 @@ public class Threat {
 
     public boolean isDefeated() { return energy <= 0; }
 
-    // --- Getters ---
+    // Getters
 
     public String getName()      { return name; }
     public String getType()      { return type; }
@@ -98,7 +77,7 @@ public class Threat {
     public int    getEnergy()    { return energy; }
     public int    getMaxEnergy() { return maxEnergy; }
 
-    // --- Helpers ---
+    // Helpers
 
     private static String buildName(String type, Random rng) {
         switch (type) {

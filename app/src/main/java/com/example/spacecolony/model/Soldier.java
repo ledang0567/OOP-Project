@@ -4,7 +4,7 @@ public class Soldier extends CrewMember {
     public static final int    DEFAULT_SKILL      = 9;
     public static final int    DEFAULT_RESILIENCE = 0;
     public static final int    DEFAULT_MAX_ENERGY = 16;
-    public static final String COLOR              = "#B71C1C"; // red
+    public static final String COLOR              = "#B71C1C"; //red
 
     public Soldier(String name) {
         super(name, "Soldier", DEFAULT_SKILL, DEFAULT_RESILIENCE, DEFAULT_MAX_ENERGY);
@@ -17,9 +17,6 @@ public class Soldier extends CrewMember {
                 location, missionsCompleted, missionsWon, trainingSessions);
     }
 
-    /**
-     * Soldiers excel in direct combat situations.
-     */
     @Override
     public int getSpecialBonus(String missionType) {
         if (missionType == null) return 0;

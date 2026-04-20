@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MissionFragment extends Fragment {
-    // --- Views ---
+    // Views
     private CrewAdapter   squadAdapter;
     private TextView      tvEmpty;
     private TextView      tvThreatInfo;
@@ -42,7 +42,7 @@ public class MissionFragment extends Fragment {
     private TextView      tvCurrentActor;
     private TextView      tvPostMissionResult;
 
-    // --- State ---
+    // State
     private MissionEngine engine;
     private Threat        pendingThreat;    // generated when squad is valid
     private List<Integer> lastSquadIds;     // ids of crew who just finished a mission
@@ -103,7 +103,7 @@ public class MissionFragment extends Fragment {
         tvCurrentActor.setVisibility(View.GONE);
     }
 
-    // --- Mission launch ---
+    // Mission launch
 
     private void launchMission() {
         List<Integer> ids = squadAdapter.getSelectedIds();
@@ -145,7 +145,7 @@ public class MissionFragment extends Fragment {
         DataManager.save(requireContext());
     }
 
-    // --- Tactical combat ---
+    // Tactical combat
 
     private void executeTurn(MissionEngine.Action action) {
         if (engine == null || engine.isOver()) return;
@@ -196,7 +196,6 @@ public class MissionFragment extends Fragment {
         engine = null;
     }
 
-    /** Sends all surviving squad members (still in Mission Control) back to Quarters. */
     private void returnSurvivorsToQuarters() {
         Storage storage = Storage.getInstance();
         int count = 0;
@@ -226,7 +225,6 @@ public class MissionFragment extends Fragment {
                 Toast.LENGTH_SHORT).show();
     }
 
-    /** Player chose to keep crew in Mission Control for another mission. */
     private void dismissPostMissionPanel() {
         layoutPostMission.setVisibility(View.GONE);
         layoutLaunch.setVisibility(View.VISIBLE);
@@ -236,7 +234,7 @@ public class MissionFragment extends Fragment {
         updateEmptyState(updated);
     }
 
-    // --- Helpers ---
+    // Helpers
 
     private void updateActorLabel() {
         if (engine == null) return;

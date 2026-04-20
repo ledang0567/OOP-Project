@@ -10,7 +10,6 @@ public class Pilot extends CrewMember {
         super(name, "Pilot", DEFAULT_SKILL, DEFAULT_RESILIENCE, DEFAULT_MAX_ENERGY);
     }
 
-    /** Full constructor for loading saved data. */
     public Pilot(int id, String name, int skill, int resilience, int experience,
                  int energy, int maxEnergy, String location,
                  int missionsCompleted, int missionsWon, int trainingSessions) {
@@ -18,9 +17,6 @@ public class Pilot extends CrewMember {
                 location, missionsCompleted, missionsWon, trainingSessions);
     }
 
-    /**
-     * Pilots excel at navigation missions: asteroid fields and escape manoeuvres.
-     */
     @Override
     public int getSpecialBonus(String missionType) {
         if (missionType == null) return 0;

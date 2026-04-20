@@ -21,15 +21,12 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-/**
- * Saves and loads the entire Storage state as a JSON file in the app's
- * internal storage (no permissions required on Android).
- */
+
 public class DataManager {
     private static final String TAG       = "DataManager";
     private static final String FILE_NAME = "colony_save.json";
 
-    // --- Save ---
+
 
     public static void save(Context context) {
         try {
@@ -56,14 +53,7 @@ public class DataManager {
         }
     }
 
-    // --- Load ---
 
-    /**
-     * Loads saved data and replaces the Storage singleton.
-     * If no save file exists, does nothing (first launch).
-     *
-     * @return true if data was loaded successfully
-     */
     public static boolean load(Context context) {
         try (FileInputStream fis = context.openFileInput(FILE_NAME);
              BufferedReader reader = new BufferedReader(new InputStreamReader(fis, StandardCharsets.UTF_8))) {
@@ -101,14 +91,13 @@ public class DataManager {
         }
     }
 
-    // --- Delete save ---
+
 
     public static void deleteSave(Context context) {
         context.deleteFile(FILE_NAME);
         Log.d(TAG, "Save file deleted.");
     }
 
-    // --- Serialisation helpers ---
 
     private static JSONObject crewMemberToJson(CrewMember cm) throws JSONException {
         JSONObject obj = new JSONObject();

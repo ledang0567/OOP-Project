@@ -38,7 +38,6 @@
             android:layout_marginBottom="16dp"
             android:text="Missions completed: 0" />
 
-        <!-- Location summary card -->
         <androidx.cardview.widget.CardView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
@@ -92,7 +91,6 @@
             </GridLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Action buttons -->
         <Button
             android:id="@+id/btn_recruit"
             android:layout_width="match_parent"

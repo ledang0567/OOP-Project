@@ -3,27 +3,11 @@ package com.example.spacecolony.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Runs a single cooperative mission.
- *
- * Supports:
- *  - 2 or 3 crew members (Larger Squads bonus)
- *  - Tactical Combat: ATTACK / DEFEND / SPECIAL actions per turn
- *  - Randomness in damage rolls
- *  - No Death: defeated crew goes to Medbay instead of being removed
- *  - Specialization bonuses applied via CrewMember.getSpecialBonus()
- *
- * Usage:
- *   MissionEngine engine = new MissionEngine(crewList, threat);
- *   // Per turn: call takeTurn(action) until engine.isOver()
- *   // Or:       call runAutoTurn() for automatic AI-controlled turns
- */
-
 public class MissionEngine {
-    // --- Action enum (Tactical Combat) ---
+    //Action enum (Tactical Combat)
     public enum Action { ATTACK, DEFEND, SPECIAL }
 
-    // --- Turn result (returned after each call to takeTurn / runAutoTurn) ---
+    //Turn result (returned after each call to takeTurn / runAutoTurn)
     public static class TurnResult {
         public final String  actingCrewName;
         public final Action  actionTaken;
@@ -49,7 +33,7 @@ public class MissionEngine {
         }
     }
 
-    // --- Fields ---
+    // Fields
     private final List<CrewMember> activeCrew;   // crew still fighting
     private final Threat           threat;
     private final String           missionType;  // for specialization bonuses
@@ -59,7 +43,7 @@ public class MissionEngine {
 
     private final StringBuilder    fullLog;      // accumulated battle log
 
-    // --- Constructor ---
+    // Constructor
     public MissionEngine(List<CrewMember> crew, Threat threat) {
         this.activeCrew   = new ArrayList<>(crew);
         this.threat       = threat;
@@ -76,22 +60,15 @@ public class MissionEngine {
         fullLog.append("\n");
     }
 
-    // --- Public API ---
+    // Public API
 
-    /**
-     * Execute one crew member's turn with a chosen action.
-     * After the crew acts the threat retaliates automatically.
-     *
-     * @param action ATTACK, DEFEND, or SPECIAL
-     * @return TurnResult describing what happened
-     */
     public TurnResult takeTurn(Action action) {
         if (over) throw new IllegalStateException("Mission is already over.");
 
         CrewMember actor = activeCrew.get(currentIndex);
         StringBuilder turnLog = new StringBuilder();
 
-        // 1. Crew member acts
+        // Crew member acts
         int damageDealt = 0;
         String actionLabel;
 
@@ -143,7 +120,7 @@ public class MissionEngine {
                 break;
         }
 
-        // 2. Check if threat is defeated
+        //2.Check if threat is defeated
         if (threat.isDefeated()) {
             turnLog.append("\n=== MISSION COMPLETE ===\n");
             turnLog.append("The ").append(threat.getName()).append(" has been neutralized!\n");
@@ -153,7 +130,7 @@ public class MissionEngine {
                     false, true, false, turnLog.toString());
         }
 
-        // 3. Threat retaliates
+        // 3.Threat retaliates
         int damageTaken;
         if (action == Action.DEFEND) {
             damageTaken = actor.defendBrace(threat.getSkill()); // doubled resilience
@@ -170,7 +147,7 @@ public class MissionEngine {
                 .append(") energy: ").append(actor.getEnergy())
                 .append("/").append(actor.getMaxEnergy()).append("\n");
 
-        // 4. Check if actor fell
+        // 4.Check if actor fell
         boolean crewMemberFell = !actor.isAlive();
         if (crewMemberFell) {
             turnLog.append("  ").append(actor.getName())
@@ -183,7 +160,7 @@ public class MissionEngine {
             currentIndex = (currentIndex + 1) % activeCrew.size();
         }
 
-        // 5. Check if all crew fell
+        // 5.Check if all crew fell
         boolean missionFailed = activeCrew.isEmpty();
         if (missionFailed) {
             turnLog.append("\n=== MISSION FAILED ===\n");
@@ -197,10 +174,7 @@ public class MissionEngine {
                 crewMemberFell, false, missionFailed, turnLog.toString());
     }
 
-    /**
-     * Auto-play one turn using simple AI: always ATTACK, unless energy < 30% → DEFEND.
-     * Used when the player wants automatic resolution.
-     */
+
     public TurnResult runAutoTurn() {
         if (over) throw new IllegalStateException("Mission is already over.");
         CrewMember actor = activeCrew.get(currentIndex);
@@ -218,7 +192,7 @@ public class MissionEngine {
         return takeTurn(action);
     }
 
-    // --- Outcome ---
+    // Outcome
 
     private void endMission(boolean victory, StringBuilder log) {
         over = true;
@@ -245,7 +219,7 @@ public class MissionEngine {
         }
     }
 
-    // --- Getters ---
+    // Getters
 
     public boolean        isOver()        { return over; }
     public boolean        isWon()         { return won; }

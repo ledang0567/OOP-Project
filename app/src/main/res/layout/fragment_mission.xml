@@ -13,7 +13,6 @@
         android:textStyle="bold"
         android:padding="16dp"/>
 
-    <!-- Threat info banner (visible once mission starts) -->
     <TextView
         android:id="@+id/tv_threat_info"
         android:layout_width="match_parent"
@@ -25,7 +24,6 @@
         android:visibility="visible"
         android:text="Select a squad and launch a mission."/>
 
-    <!-- Current actor label (visible during combat) -->
     <TextView
         android:id="@+id/tv_current_actor"
         android:layout_width="match_parent"
@@ -37,7 +35,7 @@
         android:visibility="gone"
         android:text="Current turn: "/>
 
-    <!-- Squad selection RecyclerView -->
+
     <TextView
         android:id="@+id/tv_empty_mission"
         android:layout_width="match_parent"
@@ -53,7 +51,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <!-- Battle log -->
+
     <ScrollView
         android:id="@+id/scroll_log"
         android:layout_width="match_parent"
@@ -71,7 +69,7 @@
 
     </ScrollView>
 
-    <!-- Post-mission panel (shown after mission ends) -->
+
     <LinearLayout
         android:id="@+id/layout_post_mission"
         android:layout_width="match_parent"
@@ -116,7 +114,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Launch buttons (shown before mission starts) -->
     <LinearLayout
         android:id="@+id/layout_launch"
         android:layout_width="match_parent"
@@ -132,7 +129,6 @@
 
     </LinearLayout>
 
-    <!-- Tactical combat buttons (shown during mission) -->
     <LinearLayout
         android:id="@+id/layout_tactical"
         android:layout_width="match_parent"
@@ -167,7 +163,6 @@
 
     </LinearLayout>
 
-    <!-- Auto-turn button -->
     <Button
         android:id="@+id/btn_auto_turn"
         android:layout_width="match_parent"

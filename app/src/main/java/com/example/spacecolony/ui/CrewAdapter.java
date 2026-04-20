@@ -19,36 +19,27 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * RecyclerView adapter for displaying crew member cards.
- *
- * Features:
- *  - Color-coded left border per specialization
- *  - Energy progress bar
- *  - Optional checkbox mode for multi-select (move / mission squad)
- *  - Click listener for detail view
- */
 public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.CrewViewHolder> {
 
-    // --- Interfaces ---
+    // Interfaces
     public interface OnCrewClickListener {
         void onCrewClick(CrewMember crewMember);
     }
 
-    // --- Fields ---
+    // Fields
     private List<CrewMember>       crewList;
     private final Set<Integer>     selectedIds;   // crew IDs currently checked
     private boolean                checkboxMode;  // show checkboxes?
     private OnCrewClickListener    clickListener;
 
-    // --- Constructor ---
+    // Constructor
     public CrewAdapter(List<CrewMember> crewList, boolean checkboxMode) {
         this.crewList     = new ArrayList<>(crewList);
         this.selectedIds  = new HashSet<>();
         this.checkboxMode = checkboxMode;
     }
 
-    // --- RecyclerView boilerplate ---
+    // RecyclerView boilerplate
 
     @NonNull
     @Override
@@ -67,7 +58,7 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.CrewViewHolder
     @Override
     public int getItemCount() { return crewList.size(); }
 
-    // --- Data updates ---
+    // Data updates
 
     public void updateList(List<CrewMember> newList) {
         crewList = new ArrayList<>(newList);
@@ -75,7 +66,7 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.CrewViewHolder
         notifyDataSetChanged();
     }
 
-    // --- Selection ---
+    // Selection
 
     public void setCheckboxMode(boolean enabled) {
         checkboxMode = enabled;
@@ -83,7 +74,6 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.CrewViewHolder
         notifyDataSetChanged();
     }
 
-    /** Returns IDs of all checked crew members. */
     public List<Integer> getSelectedIds() {
         return new ArrayList<>(selectedIds);
     }
@@ -95,13 +85,13 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.CrewViewHolder
         notifyDataSetChanged();
     }
 
-    // --- Listener ---
+    // Listener
 
     public void setOnCrewClickListener(OnCrewClickListener listener) {
         this.clickListener = listener;
     }
 
-    // --- ViewHolder ---
+    // ViewHolder
 
     class CrewViewHolder extends RecyclerView.ViewHolder {
 
